@@ -1,12 +1,12 @@
-﻿using MicroHack_API.Models;
-using MicroHack_API.ViewModels;
+﻿using ai_for_health.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using ai_for_health.Models;
 
-namespace MicroHack_API.Controllers
+namespace ai_for_health.Controllers
 {
     [Authorize]
     [ApiController]

@@ -1,8 +1,8 @@
-﻿using MicroHack_API.Data;
+﻿using ai_for_health.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
-namespace MicroHack_API.Controllers
+namespace ai_for_health.Controllers
 {
 
     [ApiController]
