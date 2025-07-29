@@ -7,7 +7,7 @@ import SignUp from './sigup';
 import Home from './Home';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-
+import SettingsPage from './settings';
 
 function App() {
   return (
@@ -17,10 +17,11 @@ function App() {
       <Route path="/signup" element={<SignUp  />} />
       <Route path="/chat" element={<ChatBot />} />
       <Route path="/Home" element={<Home />} />
+      <Route path="/Navbar" element={<NavBar />} />
+      <Route path="/settings" element={<SettingsPage />}/>
 
     </Routes>
   );
 }
 
 export default App;
-
