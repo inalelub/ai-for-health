@@ -45,7 +45,7 @@ const ChatBot = () => {
         <input
           type="text"
           value={input}
-          placeholder="Type a message..."
+          placeholder="Hey, how can i assist you"
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyPress}
         />
