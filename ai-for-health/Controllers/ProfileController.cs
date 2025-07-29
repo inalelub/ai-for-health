@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using ai_for_health.Models;
 using System.IdentityModel.Tokens.Jwt;
 
 namespace MicroHack_API.Controllers
