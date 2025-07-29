@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using ai_for_health.Models;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace MicroHack_API.Controllers
 {
@@ -26,20 +28,39 @@ namespace MicroHack_API.Controllers
         [Route("GetProfile")]
         public async Task<IActionResult> GetProfile()
         {
-            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (string.IsNullOrEmpty(userId))
+            var claimsList = User.Claims.Select(c => new { c.Type, c.Value }).ToList();
+            _logger.LogInformation("All claims: {Claims}", System.Text.Json.JsonSerializer.Serialize(claimsList));
+
+            var userId = User.FindFirst(JwtRegisteredClaimNames.Sub)?.Value ??
+             User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+
+            if (string.IsNullOrEmpty(userId) || !Guid.TryParse(userId, out _))
             {
-                _logger.LogWarning("No NameIdentifier claim found in token. Claims: {Claims}",
-                    string.Join(", ", User.Claims.Select(c => $"{c.Type}: {c.Value}")));
-                return Unauthorized("Invalid token: User ID not found.");
+                _logger.LogWarning("Invalid or missing NameIdentifier claim: {userId}", userId);
+                return Unauthorized("Invalid token: User ID is not a GUID.");
             }
+
 
             _logger.LogInformation("Looking for user with Id: {UserId}", userId);
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null)
             {
-                _logger.LogWarning("User not found for Id: {UserId}", userId);
-                return NotFound("User not found.");
+                _logger.LogWarning("User not found for Id: {UserId}. Trying email lookup.", userId);
+                var email = User.FindFirst(JwtRegisteredClaimNames.Sub)?.Value;
+                if (!string.IsNullOrEmpty(email))
+                {
+                    user = await _userManager.FindByEmailAsync(email.ToLowerInvariant());
+                    if (user == null)
+                    {
+                        _logger.LogWarning("User not found for Email: {Email}", email);
+                        return NotFound("User not found.");
+                    }
+                }
+                else
+                {
+                    return NotFound("User not found.");
+                }
             }
 
             var profile = new UserProfileVM

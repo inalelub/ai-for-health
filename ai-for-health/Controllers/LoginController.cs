@@ -120,13 +120,15 @@ namespace MicroHack_API.Controllers
                     return StatusCode(StatusCodes.Status500InternalServerError, "Invalid JWT key configuration.");
                 }
 
-                var claims = new[]
-                {
-            new Claim(JwtRegisteredClaimNames.Sub, user.Email ?? string.Empty),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName ?? string.Empty),
-            new Claim(ClaimTypes.NameIdentifier, user.Id)
-        };
+                var claims = new List<Claim>
+{
+    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+    new Claim(JwtRegisteredClaimNames.Sub, user.Id), // This becomes the "sub" claim and can be parsed explicitly
+    new Claim(ClaimTypes.Name, user.UserName),
+    new Claim(ClaimTypes.Email, user.Email)
+};
+
+
 
                 var key = new SymmetricSecurityKey(keyBytes);
                 var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
