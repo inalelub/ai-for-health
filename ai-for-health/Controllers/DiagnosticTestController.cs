@@ -1,5 +1,6 @@
 ﻿using ai_for_health.Data;
-using ai_for_health.Model;
+using ai_for_health.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,11 +8,12 @@ namespace ai_for_health.Controllers;
 
 [Route("api/diagnostic-tests")]
 [ApiController]
+[Authorize]
 public class DiagnosticTestController : ControllerBase
 {
-    private readonly ApplicationDbContext _db;
+    private readonly AppDbContext _db;
 
-    public DiagnosticTestController(ApplicationDbContext context)
+    public DiagnosticTestController(AppDbContext context)
     {
         _db = context;
     }

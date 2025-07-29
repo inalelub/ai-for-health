@@ -1,4 +1,4 @@
-﻿namespace ai_for_health.Model;
+﻿namespace ai_for_health.Models;
 
 public class Notification
 {

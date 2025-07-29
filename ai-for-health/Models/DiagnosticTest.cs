@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ai_for_health.Model;
+namespace ai_for_health.Models;
 
 public class DiagnosticTest
 {

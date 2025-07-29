@@ -67,7 +67,7 @@ builder.Services.AddCors(options => options.AddDefaultPolicy(
     }));
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer("Name=DefaultConnection"));
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer("Name=DefaultConnection"));
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(c =>

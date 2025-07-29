@@ -1,4 +1,5 @@
 ﻿using ai_for_health.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,11 +7,12 @@ namespace ai_for_health.Controllers
 {
     [ApiController]
     [Route("api/notifications")]
+    [Authorize]
     public class NotificationController : Controller
     {
-        private readonly ApplicationDbContext _db;
+        private readonly AppDbContext _db;
 
-        public NotificationController(ApplicationDbContext context)
+        public NotificationController(AppDbContext context)
         {
             _db = context;
         }
