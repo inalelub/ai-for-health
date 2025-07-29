@@ -15,8 +15,10 @@ We chose React as it's easy to scaffold user interfaces with just JSX syntax. It
 ## Set Up / Tools
 
 1. You need to have an IDE, preferrably [Visual Studio](https://visualstudio.microsoft.com/) & [Visual Studio Code](https://code.visualstudio.com/).
-2. Make sure you have [Node.js](https://nodejs.org/en) installed in your machine. I would say also check if you have [.NET](https://dotnet.microsoft.com/en-us/) but it comes preinstalled when you download Visual Studio.
-3. You need [Git](https://git-scm.com/).
+1. You need to install the EF Core Tools. ```dotnet tool install --global dotnet-ef```
+1. Make sure you have [Node.js](https://nodejs.org/en) installed in your machine. I would say also check if you have [.NET](https://dotnet.microsoft.com/en-us/) but it comes preinstalled when you download Visual Studio.
+1. You also need to install [Microsoft SQL Server](https://www.sqlservertutorial.net/)
+1. You need [Git](https://git-scm.com/).
 
 ## Installation & Running the Application
 
@@ -32,11 +34,9 @@ git clone https://www.github.com/inalelub/ai-for-health
 
 1. In your ```ai-for-health``` repository that you cloned, open the project using Visual Studio.
 
-1. Once the project is opened. Open the terminal & run these commands or you simply click the ```F5``` to run the application;
+1. Navigate to the root of the project where the ```.csproj``` file is located. Run the following command to load the migrations with the seeded data ```dotnet ef database update```.
 
-```
-cd ai-for-health
-```
+1. Once the project is opened. Open the terminal & run these commands or you simply click the ```F5``` to run the application;
 
 ```
 dotnet run
