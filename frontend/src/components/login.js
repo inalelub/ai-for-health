@@ -1,5 +1,5 @@
 import React from 'react';
-import './login.css'; // Make sure this CSS is saved separately
+import '../styles/login.css'; // Make sure this CSS is saved separately
 import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
@@ -15,7 +15,7 @@ const navigate = useNavigate();
 
   return (
     <form className="form">
-      <h1>Welcome Back</h1>
+      <h1 className="center-text">Welcome Back</h1>
       <div className="flex-column">
         <label>Email</label>
       </div>

@@ -30,7 +30,7 @@ git clone https://www.github.com/inalelub/ai-for-health
 
 1. Open the ```frontend``` folder using Visual Studio Code.
 
-1. In the root directory of the ```frontend``` code, run this command ```npm run dev``` to see the frontend.
+1. In the root directory of the ```frontend``` code, open the terminal & run this command ```npm install & npm start``` to see the frontend.
 
 1. In your ```ai-for-health``` repository that you cloned, open the project using Visual Studio.
 
@@ -41,3 +41,8 @@ git clone https://www.github.com/inalelub/ai-for-health
 ```
 dotnet run
 ```
+
+## Contributions
+- [Bulelani Botman](https://www.linkedin.com/in/inalelub/)
+- [Hetile Chuma](https://www.linkedin.com/in/hetile-chuma-3105b9256/)
+- [Lehlogonolo Chuka](https://www.linkedin.com/in/lehlogonolo-chuka)

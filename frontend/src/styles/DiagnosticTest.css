@@ -1,0 +1,22 @@
+
+table {
+    text-align: center;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px 10px;
+}
+
+div {
+    padding: 0 auto;
+    margin: 0 auto;
+}
+
+.fix-surrounding {
+    margin-top: 64px;
+    padding: auto;
+    width: 800px;
+    height: calc(100vh - 64px);
+    overflow: auto;
+}
