@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace MicroHack_API.Models
+namespace ai_for_health.Models
 {
     public class AppUser : IdentityUser
     {

@@ -1,5 +1,4 @@
-﻿using MicroHack_API.Models;
-using MicroHack_API.ViewModels;
+﻿using ai_for_health.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -10,10 +9,11 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using ai_for_health.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 
-namespace MicroHack_API.Controllers
+namespace ai_for_health.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

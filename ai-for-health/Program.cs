@@ -1,14 +1,11 @@
-using MicroHack_API.Data;
-using MicroHack_API.Factory;
-using MicroHack_API.Models;
+using ai_for_health.Data;
+using ai_for_health.Factory;
+using ai_for_health.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using System;
 using System.Security.Claims;
 using System.Text;
 
@@ -70,6 +67,7 @@ builder.Services.AddCors(options => options.AddDefaultPolicy(
     }));
 
 builder.Services.AddControllers();
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer("Name=DefaultConnection"));
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(c =>
@@ -98,6 +96,7 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 });
+builder.Services.AddCors(options => options.AddDefaultPolicy(policy => policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
 
 var app = builder.Build();
 

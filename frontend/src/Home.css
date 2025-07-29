@@ -1,0 +1,29 @@
+/* App Layout */
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Navigation bar styling */
+nav {
+  height: 60px; /* adjust to match your NavBar */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Content below NavBar */
+.main-content {
+  margin-top: 60px; /* height of NavBar */
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

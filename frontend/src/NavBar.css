@@ -1,0 +1,47 @@
+.navbar {
+  height: 64px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.navbar-left .logo {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.logo-img {
+  height: 60px;
+  object-fit: contain;
+}
+
+
+.nav-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.nav-button:hover {
+  background-color: #f2f2f2;
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  stroke: #333;
+  fill: none;
+}
