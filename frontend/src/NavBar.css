@@ -20,11 +20,11 @@
   color: #333;
 }
 
-.navbar-right {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+.logo-img {
+  height: 60px;
+  object-fit: contain;
 }
+
 
 .nav-button {
   background: none;
